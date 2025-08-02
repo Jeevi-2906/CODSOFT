@@ -1,0 +1,33 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    srand(time(0));
+    int randomNum = rand()%100;
+    printf("Guess a number between 1-100");
+    int guess,chance=7;
+    do{
+        cout<<"\n"<<'>';
+        cin>>guess;
+        if (guess > randomNum){
+            cout<<"Too High" ;
+            chance--;
+        }
+        else if (guess < randomNum){
+            cout<<"Too Low" ;
+            chance--;
+        }
+        else{
+            cout<<"Hurray! You got the number "<<randomNum;
+            break;
+        }
+    }while(chance!=0);
+    
+    if(chance==0){
+        cout<<"Better Luck Next Time" <<endl;
+        cout<<"The number is "<<randomNum;
+    }
+    return 0;
+}
